@@ -1,0 +1,6 @@
+[project]
+name = "skills-extractor"
+version = "0.1.0"
+description = "Skill extraction tools for NLP playground."
+
+[tool.uv]

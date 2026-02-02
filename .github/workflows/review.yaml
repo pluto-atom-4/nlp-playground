@@ -1,0 +1,25 @@
+name: Code Review
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  static-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check Persona Consistency
+        run: |
+          for dir in pydparser skills-extractor escoe-extractor spacy-project langextract; do
+            if [ ! -f "$dir/.claude/skills.md" ]; then
+              echo "::error file=$dir::Missing .claude/skills.md for sub-project"
+              exit 1
+            fi
+          done
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Comprehensive Type Check (Pyright)
+        run: uvx pyright .

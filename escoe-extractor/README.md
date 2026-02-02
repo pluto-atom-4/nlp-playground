@@ -1,0 +1,28 @@
+# escoe-extractor
+
+This sub-project provides ESCoE/ESCO taxonomy extraction, mapping job text to the ESCO framework using a vector-based approach.
+
+## Features
+- Extracts ESCO skills and occupations from job descriptions
+- Vector-based matching for robust taxonomy mapping
+- Isolated dependencies (see pyproject.toml)
+
+## Usage
+- Exposes an `extract(text)` function in `src/escoe_extractor/__init__.py`
+- Runnable as a module:
+  ```
+  uv run --package escoe-extractor python -m escoe_extractor < input.txt
+  ```
+- Reads input from stdin, outputs JSON
+
+## Development
+- All code in `src/escoe_extractor/`
+- Technical context: `.claude/skills.md`
+
+## Testing
+```
+uv run --package escoe-extractor pytest
+```
+
+## Persona & Skills
+- See `.claude/skills.md` for extraction logic and goals

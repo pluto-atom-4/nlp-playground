@@ -1,0 +1,6 @@
+[project]
+name = "escoe-extractor"
+version = "0.1.0"
+description = "ESCoE Skills Extractor integration for NLP playground."
+
+[tool.uv]

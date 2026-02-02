@@ -1,0 +1,48 @@
+name: CI
+permissions:
+  pull-requests: write
+  contents: read
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-workspace:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          cache-dependency-glob: "**/pyproject.toml"
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Sync Workspace
+        run: uv sync --all-packages
+
+      - name: Lint and Format (Ruff)
+        run: |
+          uvx ruff check .
+          uvx ruff format --check .
+
+      - name: Run Comparison and Capture Output
+        id: compare
+        run: |
+          echo "### 📊 Multi-Engine Extraction Benchmark" > comparison_report.md
+          echo "Comparison run for the latest commit in the **nlp-playground** workspace." >> comparison_report.md
+          echo "" >> comparison_report.md
+          uv run python compare_extractors.py >> comparison_report.md
+          echo "" >> comparison_report.md
+          echo "> _Generated automatically by uv & GitHub Actions_" >> comparison_report.md
+
+      - name: Post Results to PR
+        if: github.event_name == 'pull_request'
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          path: comparison_report.md

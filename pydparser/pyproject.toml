@@ -1,0 +1,6 @@
+[project]
+name = "pydparser"
+version = "0.1.0"
+description = "Custom parsing logic for NLP playground."
+
+[tool.uv]

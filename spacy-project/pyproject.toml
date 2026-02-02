@@ -1,0 +1,6 @@
+[project]
+name = "spacy-project"
+version = "0.1.0"
+description = "spaCy-based NLP workflows for NLP playground."
+
+[tool.uv]

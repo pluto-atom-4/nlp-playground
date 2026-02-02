@@ -1,0 +1,6 @@
+[project]
+name = "langextract"
+version = "0.1.0"
+description = "Language extraction utilities for NLP playground."
+
+[tool.uv]
