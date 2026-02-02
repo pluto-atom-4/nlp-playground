@@ -1,8 +1,8 @@
 # NLP Playground Monorepo
 
-This repository uses a Modular Persona Architecture for NLP experimentation, with five isolated sub-projects and strict context separation:
+This repository uses a Modular Persona Architecture for NLP experimentation, with five isolated sub-projects and strict context separation:  
 
-- **pydparser/**: Custom parsing logic
+- **pydparser-assessment/**: Custom parsing logic using pydparser
 - **skills-extractor/**: Skill extraction tools
 - **spacy-project/**: spaCy-based NLP workflows
 - **langextract/**: Language extraction utilities
@@ -23,7 +23,7 @@ Each sub-project has its own `pyproject.toml` and `src/` directory to avoid depe
 1. Initialize root and sub-projects:
    ```
    uv init --lib
-   uv init --lib pydparser
+   uv init --lib pydparser-assessment
    uv init --lib skills-extractor
    uv init --lib spacy-project
    uv init --lib langextract
@@ -31,7 +31,7 @@ Each sub-project has its own `pyproject.toml` and `src/` directory to avoid depe
    ```
 2. Add dependencies per sub-project:
    ```
-   uv add --package pydparser pydparser
+   uv add --package pydparser-assessment pydparser
    uv add --package skills-extractor skills-extractor-library
    uv add --package spacy-project spacy
    uv run --package spacy-project python -m spacy download en_core_web_sm

@@ -1,5 +1,5 @@
 [project]
-name = "pydparser"
+name = "pydparser-assessment"
 version = "0.1.0"
 description = "Custom parsing logic for NLP playground."
 readme = "README.md"
@@ -7,6 +7,6 @@ requires-python = ">=3.12"
 dependencies = []
 
 [project.scripts]
-pydparser = "pydparser.__main__:main"
+pydparser-assessment = "pydparser_assessment.__main__:main"
 
 [tool.uv]

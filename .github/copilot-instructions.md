@@ -4,7 +4,7 @@
 
 This workspace uses a Modular Persona Architecture for NLP experimentation, with strict isolation between five sub-projects to minimize dependency conflicts:
 
-- **pydparser/**: Custom parsing logic
+- **pydparser-assessment/**: Custom parsing logic
 - **skills-extractor/**: Skill extraction tools
 - **spacy-project/**: spaCy-based NLP workflows
 - **langextract/**: Language extraction utilities
@@ -26,13 +26,13 @@ This workspace uses a Modular Persona Architecture for NLP experimentation, with
 ## Developer Workflow
 1. **Initialize root and sub-projects**
    - `uv init --lib`
-   - `uv init --lib pydparser`
+   - `uv init --lib pydparser-assessment`
    - `uv init --lib skills-extractor`
    - `uv init --lib spacy-project`
    - `uv init --lib langextract`
    - `uv init --lib escoe-extractor`
 2. **Add dependencies per sub-project**
-   - `uv add --package pydparser pydparser`
+   - `uv add --package pydparser-assessment pydparser`
    - `uv add --package skills-extractor skills-extractor-library`
    - `uv add --package spacy-project spacy`
    - `uv run --package spacy-project python -m spacy download en_core_web_sm`

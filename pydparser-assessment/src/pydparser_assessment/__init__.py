@@ -14,7 +14,7 @@ class ResumeParser:
 
 def extract(text):
     """
-    Extracts entities using pydparser logic.
+    Extracts entities using pydparser-assessment logic.
     Returns a list: [designation, skill1, skill2, ...] (up to 5 skills)
     """
     try:
@@ -36,6 +36,4 @@ def main():
         print(json.dumps(results))
 
 if __name__ == "__main__":
-    main()def extract(text):
-    # Simulate structured job parsing (placeholder)
-    return {"Job Title": "Senior Software Engineer", "Location": "Seattle, WA", "Salary Range": "$160k - $210k"}
+    main()
