@@ -1,0 +1,9 @@
+{
+  "include": ["spacy-project/src", "pydparser/src", "skills-extractor/src", "langextract/src", "escoe-extractor/src"],
+  "pythonVersion": "3.14",
+  "pythonPlatform": "Windows",
+  "typeCheckingMode": "basic",
+  "venvPath": ".",
+  "reportMissingImports": false,
+  "reportMissingTypeStubs": false
+}

@@ -1,6 +1,6 @@
 import sys
 import json
-from pydparser import extract
+from pydparser_assessment import extract
 
 if __name__ == "__main__":
     text = sys.stdin.read()

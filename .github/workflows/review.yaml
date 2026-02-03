@@ -11,7 +11,7 @@ jobs:
 
       - name: Check Persona Consistency
         run: |
-          for dir in pydparser skills-extractor escoe-extractor spacy-project langextract; do
+          for dir in pydparser-assessment skills-extractor escoe-extractor spacy-project langextract; do
             if [ ! -f "$dir/.claude/skills.md" ]; then
               echo "::error file=$dir::Missing .claude/skills.md for sub-project"
               exit 1
