@@ -3,10 +3,10 @@
 This repository uses a Modular Persona Architecture for NLP experimentation, with five isolated sub-projects and strict context separation:  
 
 - **pydparser-assessment/**: Custom parsing logic using pydparser
-- **skills-extractor/**: Skill extraction tools
-- **spacy-project/**: spaCy-based NLP workflows
-- **langextract/**: Language extraction utilities
-- **escoe-extractor/**: ESCoE/ESCO taxonomy extraction
+- **skills-extractor-assessment/**: Skill extraction tools
+- **spacy-assessment/**: spaCy-based NLP workflows
+- **langextract-assessment/**: Language extraction utilities
+- **escoe-extractor-assessment/**: ESCoE/ESCO taxonomy extraction
 
 ## Modular Persona Architecture
 - **Global context** is defined in `.claude/` at the root:
@@ -24,19 +24,19 @@ Each sub-project has its own `pyproject.toml` and `src/` directory to avoid depe
    ```
    uv init --lib
    uv init --lib pydparser-assessment
-   uv init --lib skills-extractor
-   uv init --lib spacy-project
-   uv init --lib langextract
-   uv init --lib escoe-extractor
+   uv init --lib skills-extractor-assessment
+   uv init --lib spacy-assessment
+   uv init --lib langextract-assessment
+   uv init --lib escoe-extractor-assessment
    ```
 2. Add dependencies per sub-project:
    ```
    uv add --package pydparser-assessment pydparser
-   uv add --package skills-extractor skills-extractor-library
-   uv add --package spacy-project spacy
-   uv run --package spacy-project python -m spacy download en_core_web_sm
-   uv add --package langextract langextract
-   uv add --package escoe-extractor skills-extractor-library spacy
+   uv add --package skills-extractor-assessment skills-extractor-library
+   uv add --package spacy-assessment spacy
+   uv run --package spacy-assessment python -m spacy download en_core_web_sm
+   uv add --package langextract-assessment langextract
+   uv add --package escoe-extractor-assessment skills-extractor-library spacy
    ```
 3. Sync environment:
    ```

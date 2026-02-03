@@ -1,5 +1,5 @@
 [project]
-name = "langextract"
+name = "langextract-assessment"
 version = "0.1.0"
 description = "Language extraction utilities for NLP playground."
 

@@ -11,11 +11,11 @@ dependencies = []
 
 [tool.uv.workspace]
 members = [
-    "pydparser",
-    "skills-extractor",
-    "spacy-project",
-    "langextract",
-    "escoe-extractor",
+    "pydparser-assessment",
+    "skills-extractor-assessment",
+    "spacy-assessment",
+    "langextract-assessment",
+    "escoe-extractor-assessment",
 ]
 
 [build-system]

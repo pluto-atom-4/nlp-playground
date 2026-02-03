@@ -1,4 +1,4 @@
-# skills-extractor
+# skills-extractor-assessment
 
 This sub-project provides skill extraction tools for identifying skills in job descriptions and related text.
 
@@ -8,20 +8,20 @@ This sub-project provides skill extraction tools for identifying skills in job d
 - Isolated dependencies (see pyproject.toml)
 
 ## Usage
-- Exposes an `extract(text)` function in `src/skills_extractor/__init__.py`
+- Exposes an `extract(text)` function in `src/skills_extractor_assessment/__init__.py`
 - Runnable as a module:
   ```
-  uv run --package skills-extractor python -m skills_extractor < input.txt
+  uv run --package skills-extractor-assessment python -m skills_extractor_assessment < input.txt
   ```
 - Reads input from stdin, outputs JSON
 
 ## Development
-- All code in `src/skills_extractor/`
+- All code in `src/skills_extractor_assessment/`
 - Technical context: `.claude/skills.md`
 
 ## Testing
 ```
-uv run --package skills-extractor pytest
+uv run --package skills-extractor-assessment pytest
 ```
 
 ## Persona & Skills
