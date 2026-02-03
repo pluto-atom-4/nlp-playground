@@ -1,5 +1,6 @@
 import spacy
 
+
 def extract(text):
     nlp = spacy.load("en_core_web_sm")
     doc = nlp(text)

@@ -1,6 +1,7 @@
 import json
 import sys
 
+
 class ResumeParser:
     def extract_entities_from_text(self, text):
         # Placeholder logic: replace with actual entity extraction
@@ -9,8 +10,9 @@ class ResumeParser:
         words = text.strip().split()
         return {
             "designation": words[0] if words else None,
-            "skills": words[1:6] if len(words) > 1 else []
+            "skills": words[1:6] if len(words) > 1 else [],
         }
+
 
 def extract(text):
     """
@@ -29,11 +31,13 @@ def extract(text):
     except Exception as e:
         return [f"Error: {str(e)}"]
 
+
 def main():
     input_text = sys.stdin.read()
     if input_text:
         results = extract(input_text)
         print(json.dumps(results))
+
 
 if __name__ == "__main__":
     main()

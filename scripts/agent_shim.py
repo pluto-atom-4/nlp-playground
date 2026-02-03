@@ -3,6 +3,7 @@ import json
 import sys
 import re
 
+
 def get_issue_content(issue_no):
     """Fetch issue body using GitHub CLI."""
     cmd = ["gh", "issue", "view", str(issue_no), "--json", "body"]
@@ -13,7 +14,7 @@ def get_issue_content(issue_no):
 def parse_issue_metadata(body):
     """
     Extracts the JD and Expected Entities using Regex.
-    Expects format: 
+    Expects format:
     Expected Entities: Python, AWS, Docker
     """
     # Extract JD (Text inside triple backticks)
@@ -27,6 +28,7 @@ def parse_issue_metadata(body):
         expected = [e.strip().lower() for e in exp_match.group(1).split(",")]
     return jd, expected
 
+
 def run_graded_benchmark(issue_no):
     body = get_issue_content(issue_no)
     jd, expected = parse_issue_metadata(body)
@@ -36,11 +38,7 @@ def run_graded_benchmark(issue_no):
         print(f"**Targeting Entities:** {', '.join([f'`{e}`' for e in expected])}\n")
 
     # Call comparison script and pass expected entities as a JSON string
-    cmd = [
-        "uv", "run", "python", "compare_extractors.py", 
-        jd, 
-        json.dumps(expected)
-    ]
+    cmd = ["uv", "run", "python", "compare_extractors.py", jd, json.dumps(expected)]
     subprocess.run(cmd)
 
 
