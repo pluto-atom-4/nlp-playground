@@ -20,7 +20,7 @@ def run_benchmark_on_issue(issue_no):
     # Execute the comparison script with the specific JD as an argument
     # (Update compare_extractors.py to accept sys.argv[1] as input)
     cmd = ["uv", "run", "python", "compare_extractors.py", target_jd]
-        subprocess.run(cmd)
+    subprocess.run(cmd)
 
     def parse_issue_metadata(body):
         """
@@ -55,7 +55,7 @@ def run_benchmark_on_issue(issue_no):
             json.dumps(expected)
         ]
         subprocess.run(cmd)
-    subprocess.run(cmd)
+
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:

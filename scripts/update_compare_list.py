@@ -26,5 +26,4 @@ def update_extractors():
     print(f"Updated {runner_path} with: {subprojects}")
 
 if __name__ == "__main__":
-    import json
     update_extractors()

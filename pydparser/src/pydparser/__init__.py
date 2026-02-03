@@ -35,7 +35,6 @@ def main():
         results = extract(input_text)
         print(json.dumps(results))
 
+
 if __name__ == "__main__":
-    main()def extract(text):
-    # Simulate structured job parsing (placeholder)
-    return {"Job Title": "Senior Software Engineer", "Location": "Seattle, WA", "Salary Range": "$160k - $210k"}
+    main()

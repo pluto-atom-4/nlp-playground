@@ -28,17 +28,18 @@ def run_extractor(package_name, text):
     cmd = [
         "uv", "run", "--package", package_name, 
         "python", "-c", 
-        f"import json; print(json.dumps(['Python', 'AWS', 'SDE']))" # Mock output
+        "import json; print(json.dumps(['Python', 'AWS', 'SDE']))" # Mock output
     ]
     try:
         result = subprocess.run(cmd, capture_output=True, text=True, check=True)
         return json.loads(result.stdout.strip())
-    except:
+    except Exception:
         return ["Error"]
 
 
 def calculate_score(actual, expected):
-    if not expected: return "N/A"
+    if not expected:
+        return "N/A"
     actual_lower = [a.lower() for a in actual]
     matches = set(actual_lower).intersection(set(expected))
     score = (len(matches) / len(expected)) * 100 if expected else 0
