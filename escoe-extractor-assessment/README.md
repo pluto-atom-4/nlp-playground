@@ -1,4 +1,4 @@
-# escoe-extractor
+# escoe-extractor-assessment
 
 This sub-project provides ESCoE/ESCO taxonomy extraction, mapping job text to the ESCO framework using a vector-based approach.
 
@@ -8,20 +8,20 @@ This sub-project provides ESCoE/ESCO taxonomy extraction, mapping job text to th
 - Isolated dependencies (see pyproject.toml)
 
 ## Usage
-- Exposes an `extract(text)` function in `src/escoe_extractor/__init__.py`
+- Exposes an `extract(text)` function in `src/escoe_extractor_assessment/__init__.py`
 - Runnable as a module:
   ```
-  uv run --package escoe-extractor python -m escoe_extractor < input.txt
+  uv run --package escoe-extractor-assessment python -m escoe_extractor_assessment < input.txt
   ```
 - Reads input from stdin, outputs JSON
 
 ## Development
-- All code in `src/escoe_extractor/`
+- All code in `src/escoe_extractor_assessment/`
 - Technical context: `.claude/skills.md`
 
 ## Testing
 ```
-uv run --package escoe-extractor pytest
+uv run --package escoe-extractor-assessment pytest
 ```
 
 ## Persona & Skills

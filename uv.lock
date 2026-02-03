@@ -4,11 +4,12 @@ requires-python = ">=3.14"
 
 [manifest]
 members = [
-    "escoe-extractor",
-    "langextract",
+    "escoe-extractor-assessment",
+    "langextract-assessment",
     "nlp-playground",
-    "skills-extractor",
-    "spacy-project",
+    "pydparser-assessment",
+    "skills-extractor-assessment",
+    "spacy-assessment",
 ]
 
 [[package]]
@@ -149,9 +150,9 @@ wheels = [
 ]
 
 [[package]]
-name = "escoe-extractor"
+name = "escoe-extractor-assessment"
 version = "0.1.0"
-source = { virtual = "escoe-extractor" }
+source = { virtual = "escoe-extractor-assessment" }
 
 [[package]]
 name = "idna"
@@ -175,9 +176,9 @@ wheels = [
 ]
 
 [[package]]
-name = "langextract"
+name = "langextract-assessment"
 version = "0.1.0"
-source = { virtual = "langextract" }
+source = { virtual = "langextract-assessment" }
 
 [[package]]
 name = "markupsafe"
@@ -369,6 +370,11 @@ wheels = [
 ]
 
 [[package]]
+name = "pydparser-assessment"
+version = "0.1.0"
+source = { virtual = "pydparser-assessment" }
+
+[[package]]
 name = "requests"
 version = "2.32.5"
 source = { registry = "https://pypi.org/simple" }
@@ -419,9 +425,9 @@ wheels = [
 ]
 
 [[package]]
-name = "skills-extractor"
+name = "skills-extractor-assessment"
 version = "0.1.0"
-source = { virtual = "skills-extractor" }
+source = { virtual = "skills-extractor-assessment" }
 
 [[package]]
 name = "smart-open"
@@ -472,6 +478,17 @@ wheels = [
 ]
 
 [[package]]
+name = "spacy-assessment"
+version = "0.1.0"
+source = { virtual = "spacy-assessment" }
+dependencies = [
+    { name = "spacy" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "spacy", specifier = ">=3.8.11" }]
+
+[[package]]
 name = "spacy-legacy"
 version = "3.0.12"
 source = { registry = "https://pypi.org/simple" }
@@ -488,17 +505,6 @@ sdist = { url = "https://files.pythonhosted.org/packages/67/3d/926db774c9c98acf6
 wheels = [
     { url = "https://files.pythonhosted.org/packages/33/78/d1a1a026ef3af911159398c939b1509d5c36fe524c7b644f34a5146c4e16/spacy_loggers-1.0.5-py3-none-any.whl", hash = "sha256:196284c9c446cc0cdb944005384270d775fdeaf4f494d8e269466cfa497ef645", size = 22343, upload-time = "2023-09-11T12:26:50.586Z" },
 ]
-
-[[package]]
-name = "spacy-project"
-version = "0.1.0"
-source = { virtual = "spacy-project" }
-dependencies = [
-    { name = "spacy" },
-]
-
-[package.metadata]
-requires-dist = [{ name = "spacy", specifier = ">=3.8.11" }]
 
 [[package]]
 name = "srsly"

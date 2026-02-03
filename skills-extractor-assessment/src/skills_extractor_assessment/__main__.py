@@ -1,6 +1,6 @@
 import sys
 import json
-from . import extract
+from skills_extractor_assessment import extract
 
 if __name__ == "__main__":
     text = sys.stdin.read()

@@ -1,5 +1,5 @@
 {
-  "include": ["spacy-project/src", "pydparser/src", "skills-extractor/src", "langextract/src", "escoe-extractor/src"],
+  "include": ["spacy-assessment/src", "pydparser-assessment/src", "skills-extractor-assessment/src", "langextract-assessment/src", "escoe-extractor-assessment/src"],
   "pythonVersion": "3.14",
   "pythonPlatform": "Windows",
   "typeCheckingMode": "basic",

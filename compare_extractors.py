@@ -16,11 +16,11 @@ test_jd = sys.argv[1] if len(sys.argv) > 1 else JOB_DESCRIPTION
 
 # Define the sub-projects in your uv workspace
 EXTRACTORS = [
-    "pydparser",
-    "skills-extractor",
-    "escoe-extractor",
-    "spacy-project",
-    "langextract",
+    "pydparser-assessment",
+    "skills-extractor-assessment",
+    "escoe-extractor-assessment",
+    "spacy-assessment",
+    "langextract-assessment",
 ]
 
 

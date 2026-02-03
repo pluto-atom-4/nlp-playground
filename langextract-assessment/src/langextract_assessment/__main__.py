@@ -1,6 +1,6 @@
 import sys
 import json
-from spacy_project import extract
+from langextract_assessment import extract
 
 if __name__ == "__main__":
     text = sys.stdin.read()

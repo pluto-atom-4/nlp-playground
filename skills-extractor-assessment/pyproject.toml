@@ -1,5 +1,5 @@
 [project]
-name = "skills-extractor"
+name = "skills-extractor-assessment"
 version = "0.1.0"
 description = "Skill extraction tools for NLP playground."
 

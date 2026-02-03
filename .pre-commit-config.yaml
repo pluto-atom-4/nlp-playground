@@ -18,14 +18,14 @@ repos:
     hooks:
       - id: check-persona-files
         name: Check Sub-Project Persona Files
-        entry: bash -c 'for dir in pydparser skills-extractor escoe-extractor spacy-project langextract; do if [ ! -f "$dir/.claude/skills.md" ]; then echo "Missing $dir/.claude/skills.md"; exit 1; fi; done'
+        entry: bash -c 'for dir in pydparser-assessment skills-extractor-assessment escoe-extractor-assessment spacy-assessment langextract-assessment; do if [ ! -f "$dir/.claude/skills.md" ]; then echo "Missing $dir/.claude/skills.md"; exit 1; fi; done'
         language: system
         pass_filenames: false
       - id: validate-spacy-models
         name: Validate spaCy Models
-        entry: uv run --package spacy-project python -m spacy validate
+        entry: uv run --package spacy-assessment python -m spacy validate
         language: system
-        files: ^spacy-project/
+        files: ^spacy-assessment/
       - id: sync-extractor-list
         name: Sync Extractor List
         entry: uv run python scripts/update_compare_list.py

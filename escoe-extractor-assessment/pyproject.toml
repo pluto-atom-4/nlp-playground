@@ -1,5 +1,5 @@
 [project]
-name = "escoe-extractor"
+name = "escoe-extractor-assessment"
 version = "0.1.0"
 description = "ESCoE Skills Extractor integration for NLP playground."
 

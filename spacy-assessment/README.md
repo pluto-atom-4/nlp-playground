@@ -1,4 +1,4 @@
-# spacy-project
+# spacy-assessment
 
 This sub-project provides spaCy-based NLP workflows for skill and entity extraction.
 
@@ -8,20 +8,20 @@ This sub-project provides spaCy-based NLP workflows for skill and entity extract
 - Isolated dependencies (see pyproject.toml)
 
 ## Usage
-- Exposes an `extract(text)` function in `src/spacy_project/__init__.py`
+- Exposes an `extract(text)` function in `src/spacy_assessment/__init__.py`
 - Runnable as a module:
   ```
-  uv run --package spacy-project python -m spacy_project < input.txt
+  uv run --package spacy-assessment python -m spacy_assessment < input.txt
   ```
 - Reads input from stdin, outputs JSON
 
 ## Development
-- All code in `src/spacy_project/`
+- All code in `src/spacy_assessment/`
 - Technical context: `.claude/skills.md`
 
 ## Testing
 ```
-uv run --package spacy-project pytest
+uv run --package spacy-assessment pytest
 ```
 
 ## Persona & Skills
