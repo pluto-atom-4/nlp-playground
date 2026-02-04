@@ -15,7 +15,13 @@ Experience with spaCy or LangChain is a plus. Salary: $160k - $210k.
 test_jd = sys.argv[1] if len(sys.argv) > 1 else JOB_DESCRIPTION
 
 # Define the sub-projects in your uv workspace
-EXTRACTORS = ['escoe-extractor-assessment', 'langextract-assessment', 'pydparser-assessment', 'skills-extractor-assessment', 'spacy-assessment']
+EXTRACTORS = [
+    "escoe-extractor-assessment",
+    "langextract-assessment",
+    "pydparser-assessment",
+    "skills-extractor-assessment",
+    "spacy-assessment",
+]
 
 
 def run_extractor(package_name, text):
