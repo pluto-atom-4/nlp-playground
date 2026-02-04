@@ -1,0 +1,11 @@
+John Doe
+Senior Software Engineer - Seattle, WA
+Experience: 6 years in Backend Development
+
+Skills:
+Python, AWS, Kubernetes, Docker, Java, SQL, Terraform, Jenkins, Git
+
+Experience:
+Microsoft - Seattle, WA (January 2020 - Present)
+- Developed a Python-based automation tool reducing manual intervention by 20 hours per week.
+- Mentored junior engineers on AWS cloud-native best practices.

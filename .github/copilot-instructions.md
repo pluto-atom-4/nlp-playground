@@ -2,14 +2,15 @@
 # Copilot Instructions for nlp-playground Monorepo
 
 
+
+
 This workspace uses a Modular Persona Architecture for NLP experimentation, with strict isolation between five sub-projects to minimize dependency conflicts:
 
 - **pydparser-assessment/**: Custom parsing logic
-- **skills-extractor/**: Skill extraction tools
-- **spacy-project/**: spaCy-based NLP workflows
-- **langextract/**: Language extraction utilities
-- **escoe-extractor/**: ESCoE/ESCO taxonomy extraction
-
+- **skills-extractor-assessment/**: Skill extraction tools
+- **spacy-assessment/**: spaCy-based NLP workflows
+- **langextract-assessment/**: Language extraction utilities
+- **escoe-extractor-assessment/**: ESCoE/ESCO taxonomy extraction
 ## Modular Persona Architecture
 - **Global context** is defined in `.claude/` at the root:
    - `persona.md`: Describes the overall AI persona (e.g., Senior NLP Architect, Seattle focus)
@@ -23,21 +24,29 @@ This workspace uses a Modular Persona Architecture for NLP experimentation, with
 - Dependencies are managed per sub-project using `uv`
 - The root is only for coordination, shared scripts, and global persona/rules
 
+## Test Data
+All shared sample resumes and job descriptions for testing and benchmarking are stored in `tests/data/` at the project root. Use `tests/data/sample_resume.txt` as the default input for regression tests and extractor benchmarking.
+
+To run a benchmark with the default sample resume:
+```
+uv run python compare_extractors.py "$(cat tests/data/sample_resume.txt)"
+```
+
 ## Developer Workflow
 1. **Initialize root and sub-projects**
    - `uv init --lib`
    - `uv init --lib pydparser-assessment`
-   - `uv init --lib skills-extractor`
-   - `uv init --lib spacy-project`
-   - `uv init --lib langextract`
-   - `uv init --lib escoe-extractor`
+   - `uv init --lib skills-extractor-assessment`
+   - `uv init --lib spacy-assessment`
+   - `uv init --lib langextract-assessment`
+   - `uv init --lib escoe-extractor-assessment`
 2. **Add dependencies per sub-project**
    - `uv add --package pydparser-assessment pydparser`
-   - `uv add --package skills-extractor skills-extractor-library`
-   - `uv add --package spacy-project spacy`
-   - `uv run --package spacy-project python -m spacy download en_core_web_sm`
-   - `uv add --package langextract langextract`
-   - `uv add --package escoe-extractor skills-extractor-library spacy`
+   - `uv add --package skills-extractor-assessment skills-extractor-library`
+   - `uv add --package spacy-assessment spacy`
+   - `uv run --package spacy-assessment python -m spacy download en_core_web_sm`
+   - `uv add --package langextract-assessment langextract`
+   - `uv add --package escoe-extractor-assessment skills-extractor-library spacy`
 3. **Sync environment**
    - `uv sync`
 
@@ -51,13 +60,13 @@ This workspace uses a Modular Persona Architecture for NLP experimentation, with
 
 
 ## Example: Adding a Dependency
-To add `requests` to `skills-extractor`:
+To add `requests` to `skills-extractor-assessment`:
 ```
-uv add --package skills-extractor requests
+uv add --package skills-extractor-assessment requests
 ```
-To add `pandas` to `escoe-extractor`:
+To add `pandas` to `escoe-extractor-assessment`:
 ```
-uv add --package escoe-extractor pandas
+uv add --package escoe-extractor-assessment pandas
 ```
 
 ## Pre-Commit Automation
@@ -117,8 +126,8 @@ This will run a sample IT job description through all five extractors and print 
 - Build and run commands should be executed from the root using `uv run --package <sub-project> <command>`
 
 ## Integration Points
-- spaCy models are managed in `spacy-project` only
-- ESCoE/ESCO taxonomy extraction is managed in `escoe-extractor` only
+- spaCy models are managed in `spacy-assessment` only
+- ESCoE/ESCO taxonomy extraction is managed in `escoe-extractor-assessment` only
 - Shared data or scripts should be placed in the root or a dedicated shared folder, not inside sub-projects
 - Use `.claude/skills.md` in each sub-project for technical context
 

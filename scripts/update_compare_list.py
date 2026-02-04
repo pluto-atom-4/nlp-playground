@@ -17,7 +17,7 @@ def update_extractors():
     if not os.path.exists(runner_path):
         return
 
-    with open(runner_path, "r") as f:
+    with open(runner_path, "r", encoding="utf-8") as f:
         content = f.read()
 
     # Regex to find and replace the EXTRACTORS list
@@ -26,7 +26,7 @@ def update_extractors():
         pattern, f"EXTRACTORS = {subprojects}", content, flags=re.DOTALL
     )
 
-    with open(runner_path, "w") as f:
+    with open(runner_path, "w", encoding="utf-8") as f:
         f.write(updated_content)
     print(f"Updated {runner_path} with: {subprojects}")
 
