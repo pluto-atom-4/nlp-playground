@@ -1,12 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "pydparser-assessment"
 version = "0.1.0"
 description = "Custom parsing logic for NLP playground."
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "nltk>=3.8.1",
+    "pydparser>=1.0.4",
+]
 
 [project.scripts]
 pydparser-assessment = "pydparser_assessment.__main__:main"
+
+[tool.setuptools]
+packages = ["pydparser_assessment"]
+
+[tool.setuptools.package-dir]
+"" = "src"
 
 [tool.uv]

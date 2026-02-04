@@ -19,6 +19,14 @@ This repository uses a Modular Persona Architecture for NLP experimentation, wit
 ## Structure
 Each sub-project has its own `pyproject.toml` and `src/` directory to avoid dependency conflicts. Use `uv` for all environment and dependency management. Technical context for each sub-project is in its `.claude/skills.md`.
 
+## Test Data
+All shared sample resumes and job descriptions for testing and benchmarking are stored in `tests/data/` at the project root. Use `tests/data/sample_resume.txt` as the default input for regression tests and extractor benchmarking.
+
+To run a benchmark with the default sample resume:
+```
+uv run python compare_extractors.py "$(cat tests/data/sample_resume.txt)"
+```
+
 ## Quickstart
 1. Initialize root and sub-projects:
    ```
@@ -64,7 +72,7 @@ This script runs a sample IT job description through all five extractors and pri
 
 ## Entry Point Convention
 - Each sub-project exposes an `extract(text)` function in its main package (see `src/<project>/__init__.py`).
-- Each sub-project is runnable as a module (e.g., `python -m spacy_project`) and reads input from stdin, outputting JSON.
+- Each sub-project is runnable as a module (e.g., `python -m spacy_assessment`) and reads input from stdin, outputting JSON.
 
 
 ## Persona & Skills Context

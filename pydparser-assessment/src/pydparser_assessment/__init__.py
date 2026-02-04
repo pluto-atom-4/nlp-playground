@@ -1,35 +1,24 @@
 import json
 import sys
+from pydparser import ResumeParser
 
 
-class ResumeParser:
-    def extract_entities_from_text(self, text):
-        # Placeholder logic: replace with actual entity extraction
-        # Simulate extraction of designation and skills from text
-        # For demo, just extract first word as designation and next 5 as skills
-        words = text.strip().split()
-        return {
-            "designation": words[0] if words else None,
-            "skills": words[1:6] if len(words) > 1 else [],
-        }
-
-
-def extract(text):
+def extract(file_path: str) -> list[str]:
     """
-    Extracts entities using pydparser-assessment logic.
+    Extract entities using pydparser-assessment logic from a file.
     Returns a list: [designation, skill1, skill2, ...] (up to 5 skills)
     """
     try:
-        parser = ResumeParser()
-        data = parser.extract_entities_from_text(text)
-        entities = []
-        if data.get("designation"):
-            entities.append(data["designation"])
-        if data.get("skills"):
-            entities.extend(data["skills"][:5])
+        parser = ResumeParser(file_path)
+        data = parser.get_extracted_data()
+        print(data)  # For debugging purposes
+        designation = data.get("designation")
+        skills = data.get("skills", [])
+        entities = [designation] if designation else []
+        entities.extend(skills[:5])
         return entities
     except Exception as e:
-        return [f"Error: {str(e)}"]
+        return [f"Error: {e}"]
 
 
 def main():
