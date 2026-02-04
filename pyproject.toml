@@ -6,7 +6,7 @@ readme = "README.md"
 authors = [
     { name = "Akai Kaede", email = "genko2@hotmail.com" }
 ]
-requires-python = ">=3.14"
+requires-python = ">=3.12"
 dependencies = []
 
 [tool.uv.workspace]
