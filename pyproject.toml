@@ -7,7 +7,9 @@ authors = [
     { name = "Akai Kaede", email = "genko2@hotmail.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "pre-commit>=4.5.1",
+]
 
 [tool.uv.workspace]
 members = [

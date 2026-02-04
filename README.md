@@ -1,6 +1,6 @@
 # NLP Playground Monorepo
 
-This repository uses a Modular Persona Architecture for NLP experimentation, with five isolated sub-projects and strict context separation:  
+This repository uses a Modular Persona Architecture for NLP experimentation, with five isolated sub-projects and strict context separation:
 
 - **pydparser-assessment/**: Custom parsing logic using pydparser
 - **skills-extractor-assessment/**: Skill extraction tools

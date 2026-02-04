@@ -6,8 +6,8 @@ import json
 import sys
 
 JOB_DESCRIPTION = """
-Senior Software Engineer - Seattle, WA. 
-Required: 5+ years of experience with Python, AWS, and Kubernetes. 
+Senior Software Engineer - Seattle, WA.
+Required: 5+ years of experience with Python, AWS, and Kubernetes.
 Experience with spaCy or LangChain is a plus. Salary: $160k - $210k.
 """
 
@@ -15,13 +15,7 @@ Experience with spaCy or LangChain is a plus. Salary: $160k - $210k.
 test_jd = sys.argv[1] if len(sys.argv) > 1 else JOB_DESCRIPTION
 
 # Define the sub-projects in your uv workspace
-EXTRACTORS = [
-    "pydparser-assessment",
-    "skills-extractor-assessment",
-    "escoe-extractor-assessment",
-    "spacy-assessment",
-    "langextract-assessment",
-]
+EXTRACTORS = ['escoe-extractor-assessment', 'langextract-assessment', 'pydparser-assessment', 'skills-extractor-assessment', 'spacy-assessment']
 
 
 def run_extractor(package_name, text):
