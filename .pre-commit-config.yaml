@@ -13,13 +13,12 @@ repos:
       - id: ruff
         args: [ --fix ]
       - id: ruff-format
-        stages: [ manual ]
 
   - repo: local
     hooks:
       - id: check-persona-files
         name: Check Sub-Project Persona Files
-        entry: bash -c 'for dir in pydparser-assessment skills-extractor-assessment escoe-extractor-assessment spacy-assessment langextract-assessment; do if [ ! -f "$dir/.claude/skills.md" ]; then echo "Missing $dir/.claude/skills.md"; exit 1; fi; done'
+        entry: uv run python -c "import sys; import os; dirs = ['pydparser-assessment', 'skills-extractor-assessment', 'escoe-extractor-assessment', 'spacy-assessment', 'langextract-assessment']; missing = [d for d in dirs if not os.path.isfile(os.path.join(d, '.claude', 'skills.md'))]; sys.exit(print('\\n'.join([f'Missing {d}/.claude/skills.md' for d in missing]) or 'OK') or (1 if missing else 0))"
         language: system
         pass_filenames: false
       - id: validate-spacy-models
