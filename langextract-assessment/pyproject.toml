@@ -20,4 +20,3 @@ packages = ["langextract_assessment"]
 dev = [
     "pytest>=9.0.2",
 ]
-
