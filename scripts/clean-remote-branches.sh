@@ -44,10 +44,10 @@ is_protected() {
 get_status() {
     local branch="$1"
     local ahead behind
-    
+
     ahead=$(git rev-list --count "origin/main..origin/$branch" 2>/dev/null || echo "0")
     behind=$(git rev-list --count "origin/$branch..origin/main" 2>/dev/null || echo "0")
-    
+
     if [[ $ahead -gt 0 ]] && [[ $behind -gt 0 ]]; then
         echo "⇅ +$ahead -$behind"
     elif [[ $ahead -gt 0 ]]; then
@@ -65,34 +65,34 @@ main() {
     git fetch origin --prune
     print_success "Fetch complete"
     echo
-    
+
     # Check if main branch exists
     if ! git show-ref --quiet refs/remotes/origin/main; then
         print_error "origin/main does not exist"
         exit 1
     fi
-    
+
     # Get all remote branches (excluding HEAD)
     print_info "Listing remote branches..."
     branches=$(git branch -r | grep -v HEAD | sed 's|origin/||' | sort)
-    
+
     if [[ -z "$branches" ]]; then
         print_warning "No remote branches found"
         exit 0
     fi
-    
+
     # Build list with status for fzf
     declare -a branch_list
     while IFS= read -r branch; do
         status=$(get_status "$branch")
         branch_list+=("$branch | $status")
     done <<< "$branches"
-    
+
     # Display all branches with status
     print_info "Available branches:"
     printf '%s\n' "${branch_list[@]}"
     echo
-    
+
     # Use fzf for multi-selection
     print_info "Select branches to delete (use TAB to select multiple, ENTER to confirm):"
     selected=$(printf '%s\n' "${branch_list[@]}" | fzf \
@@ -100,25 +100,25 @@ main() {
         --preview 'echo {} | awk -F" | " "{print \$1}" | xargs -I {} git log origin/main..origin/{} --oneline' \
         --preview-window=right:50% \
         --header="SPACE: select | TAB: toggle | ENTER: confirm | ESC: cancel" || true)
-    
+
     if [[ -z "$selected" ]]; then
         print_warning "No branches selected"
         exit 0
     fi
-    
+
     # Extract branch names from selected items
     declare -a branches_to_delete
     while IFS= read -r line; do
         branch=$(echo "$line" | awk -F' | ' '{print $1}')
         branches_to_delete+=("$branch")
     done <<< "$selected"
-    
+
     print_info "You have selected ${#branches_to_delete[@]} branch(es) for deletion:"
     for branch in "${branches_to_delete[@]}"; do
         echo "  - $branch"
     done
     echo
-    
+
     # Check for protected branches
     declare -a protected_found
     declare -a safe_branches
@@ -129,7 +129,7 @@ main() {
             safe_branches+=("$branch")
         fi
     done
-    
+
     if [[ ${#protected_found[@]} -gt 0 ]]; then
         echo
         print_warning "The following branches are protected and will be skipped:"
@@ -138,16 +138,16 @@ main() {
         done
         echo
     fi
-    
+
     if [[ ${#safe_branches[@]} -eq 0 ]]; then
         print_error "No safe branches to delete (all selected branches are protected)"
         exit 1
     fi
-    
+
     # Confirm deletion for each safe branch
     deleted_count=0
     skipped_count=0
-    
+
     for branch in "${safe_branches[@]}"; do
         echo
         print_info "Branch: $branch"
@@ -155,10 +155,10 @@ main() {
         echo "  Status: $status"
         git log "origin/main..origin/$branch" --oneline -5 2>/dev/null | sed 's/^/    /' || echo "    (no commits ahead of main)"
         echo
-        
+
         read -p "Delete branch 'origin/$branch'? (y/n): " -n 1 -r confirm
         echo
-        
+
         if [[ $confirm =~ ^[Yy]$ ]]; then
             if git push origin --delete "$branch" 2>/dev/null; then
                 print_success "Deleted origin/$branch"
@@ -172,7 +172,7 @@ main() {
             ((skipped_count++))
         fi
     done
-    
+
     # Summary
     echo
     echo "================================================"

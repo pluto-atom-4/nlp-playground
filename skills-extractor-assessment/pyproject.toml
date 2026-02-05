@@ -20,4 +20,3 @@ packages = ["skills_extractor_assessment"]
 dev = [
     "pytest>=9.0.2",
 ]
-

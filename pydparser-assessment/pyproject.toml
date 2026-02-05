@@ -26,4 +26,3 @@ packages = ["pydparser_assessment"]
 dev = [
     "pytest>=9.0.2",
 ]
-
