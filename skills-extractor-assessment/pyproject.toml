@@ -1,6 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "skills-extractor-assessment"
 version = "0.1.0"
 description = "Skill extraction tools for NLP playground."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["skills_extractor_assessment"]
 
 [tool.uv]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]
+

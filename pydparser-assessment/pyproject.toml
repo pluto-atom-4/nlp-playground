@@ -17,9 +17,13 @@ dependencies = [
 pydparser-assessment = "pydparser_assessment.__main__:main"
 
 [tool.setuptools]
+package-dir = {"" = "src"}
 packages = ["pydparser_assessment"]
 
-[tool.setuptools.package-dir]
-"" = "src"
-
 [tool.uv]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]
+
