@@ -6,14 +6,13 @@ readme = "README.md"
 authors = [
     { name = "Akai Kaede", email = "genko2@hotmail.com" }
 ]
-requires-python = ">=3.12"
+requires-python = ">=3.10"
 dependencies = [
     "pre-commit>=4.5.1",
 ]
 
 [tool.uv.workspace]
 members = [
-    "pydparser-assessment",
     "skills-extractor-assessment",
     "spacy-assessment",
     "langextract-assessment",
@@ -26,6 +25,6 @@ build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
-    "pytest>=9.0.2",
+    "pytest>=8.2.0,<9.0.0",
     "ruff>=0.14.14",
 ]

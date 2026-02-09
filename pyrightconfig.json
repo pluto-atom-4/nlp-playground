@@ -1,6 +1,6 @@
 {
-  "include": ["spacy-assessment/src", "pydparser-assessment/src", "skills-extractor-assessment/src", "langextract-assessment/src", "escoe-extractor-assessment/src"],
-  "pythonVersion": "3.14",
+  "include": ["spacy-assessment/src", "skills-extractor-assessment/src", "langextract-assessment/src", "escoe-extractor-assessment/src"],
+  "pythonVersion": "3.10",
   "pythonPlatform": "Windows",
   "typeCheckingMode": "basic",
   "venvPath": ".",
